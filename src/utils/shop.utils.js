@@ -21,7 +21,8 @@ const shopItems = [
         size: [38, 39, 40, 41, 42],
         inStock: true,
         image: shoe1,
-        type:'shoes',
+        type: 'shoes',
+        description: "Lorem ipsum dolor sit amet consectetur. Odio dictum sed elit ac non tristique. Velit feugiat accumsan nulla pulvinar aenean.",
         gender: "Female"
     },
     {
@@ -32,7 +33,8 @@ const shopItems = [
         inStock: false,
         image: shoe2,
         type: 'shoes',
-        gender:"Female"
+        description: "Lorem ipsum dolor sit amet consectetur. Odio dictum sed elit ac non tristique. Velit feugiat accumsan nulla pulvinar aenean.",
+        gender: "Female"
     },
     {
         name: "Shoe 3",
@@ -42,7 +44,8 @@ const shopItems = [
         inStock: true,
         image: shoe3,
         type: 'shoes',
-        gender:"Female"
+        description: "Lorem ipsum dolor sit amet consectetur. Odio dictum sed elit ac non tristique. Velit feugiat accumsan nulla pulvinar aenean.",
+        gender: "Female"
     },
     {
         name: "Shoe 4",
@@ -52,7 +55,8 @@ const shopItems = [
         inStock: true,
         image: shoe4,
         type: 'shoes',
-        gender:"Female"
+        description: "Lorem ipsum dolor sit amet consectetur. Odio dictum sed elit ac non tristique. Velit feugiat accumsan nulla pulvinar aenean.",
+        gender: "Female"
     },
     {
         name: "Shoe 5",
@@ -62,7 +66,8 @@ const shopItems = [
         inStock: false,
         image: shoe5,
         type: 'shoes',
-        gender:"Male"
+        description: "Lorem ipsum dolor sit amet consectetur. Odio dictum sed elit ac non tristique. Velit feugiat accumsan nulla pulvinar aenean.",
+        gender: "Male"
     },
     {
         name: "Shoe 6",
@@ -72,7 +77,8 @@ const shopItems = [
         inStock: true,
         image: shoe6,
         type: 'shoes',
-        gender:"Male"
+        description: "Lorem ipsum dolor sit amet consectetur. Odio dictum sed elit ac non tristique. Velit feugiat accumsan nulla pulvinar aenean.",
+        gender: "Male"
     },
     {
         name: "Shoe 7",
@@ -82,7 +88,8 @@ const shopItems = [
         inStock: false,
         image: shoe7,
         type: 'shoes',
-        gender:"Female"
+        description: "Lorem ipsum dolor sit amet consectetur. Odio dictum sed elit ac non tristique. Velit feugiat accumsan nulla pulvinar aenean.",
+        gender: "Female"
     },
     {
         name: "Flay Skirt",
@@ -92,6 +99,7 @@ const shopItems = [
         inStock: true,
         image: cloth1,
         type: 'clothes',
+        description: "Lorem ipsum dolor sit amet consectetur. Odio dictum sed elit ac non tristique. Velit feugiat accumsan nulla pulvinar aenean.",
         gender: "Female"
     },
     {
@@ -102,6 +110,7 @@ const shopItems = [
         inStock: false,
         image: cloth2,
         type: 'clothes',
+        description: "Lorem ipsum dolor sit amet consectetur. Odio dictum sed elit ac non tristique. Velit feugiat accumsan nulla pulvinar aenean.",
         gender: "Female"
     },
     {
@@ -112,6 +121,7 @@ const shopItems = [
         inStock: true,
         image: cloth3,
         type: 'clothes',
+        description: "Lorem ipsum dolor sit amet consectetur. Odio dictum sed elit ac non tristique. Velit feugiat accumsan nulla pulvinar aenean.",
         gender: "Female"
     },
     {
@@ -122,6 +132,7 @@ const shopItems = [
         inStock: true,
         image: cloth4,
         type: 'clothes',
+        description: "Lorem ipsum dolor sit amet consectetur. Odio dictum sed elit ac non tristique. Velit feugiat accumsan nulla pulvinar aenean.",
         gender: "Female"
     },
     {
@@ -132,6 +143,7 @@ const shopItems = [
         inStock: false,
         image: cloth5,
         type: 'clothes',
+        description: "Lorem ipsum dolor sit amet consectetur. Odio dictum sed elit ac non tristique. Velit feugiat accumsan nulla pulvinar aenean.",
         gender: "Male"
     },
     {
@@ -142,6 +154,7 @@ const shopItems = [
         inStock: true,
         image: cloth6,
         type: 'clothes',
+        description: "Lorem ipsum dolor sit amet consectetur. Odio dictum sed elit ac non tristique. Velit feugiat accumsan nulla pulvinar aenean.",
         gender: "Male"
     },
     {
@@ -152,6 +165,7 @@ const shopItems = [
         inStock: false,
         image: cloth7,
         type: 'clothes',
+        description: "Lorem ipsum dolor sit amet consectetur. Odio dictum sed elit ac non tristique. Velit feugiat accumsan nulla pulvinar aenean.",
         gender: "Female"
     },
 ];

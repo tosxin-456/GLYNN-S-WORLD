@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import dropDown from "../assets/arrow_down.svg";
 import shopItems from "../utils/shop.utils";
+import cart from "../assets/mdi_cart(white).svg";
+
 
 function Filter({ isDarkMode }) {
   const [filter, setFilter] = useState("shoes"); // Current selected category
@@ -63,16 +65,16 @@ function Filter({ isDarkMode }) {
         <span>{head}</span> tailored to fit your unique taste.
       </h1>
 
-      <div className="flex justify-between md:w-[70%] md:m-auto">
+      <div className="flex flex-col md:flex-row md:justify-between md:w-[70%] md:m-auto gap-4">
         {/* Category Buttons */}
-        <div className="flex gap-4 mb-4">
+        <div className="flex flex-wrap gap-4">
           {["shoes", "clothes", "accessories", "bags"].map((type) => (
             <button
               key={type}
               className={`px-4 py-2 rounded-2xl text-sm font-medium ${
                 filter === type
                   ? isDarkMode
-                    ? "bg-black text-white border-[1.5px] border-solid border-white "
+                    ? "bg-black text-white border-[1.5px] border-solid border-white"
                     : "bg-black text-white"
                   : `border-[1.5px] border-solid ${
                       isDarkMode
@@ -88,7 +90,7 @@ function Filter({ isDarkMode }) {
         </div>
 
         {/* Gender Dropdown */}
-        <div className="relative flex items-center">
+        <div className="relative flex items-center md:w-auto w-full">
           <img
             src={dropDown}
             alt="Dropdown Icon"
@@ -102,26 +104,25 @@ function Filter({ isDarkMode }) {
               isDarkMode
                 ? "bg-gray-800 text-white border-gray-600"
                 : "bg-gray-800 text-white border-gray-300"
-            } w-full`}
+            } w-full md:w-auto`}
           >
             <option value="Male">Male</option>
             <option value="Female">Female</option>
           </select>
         </div>
       </div>
-
       {/* Filtered Items */}
-      <div className="grid grid-cols-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-6 md:w-[80%] m-auto ">
+      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-6 md:w-[80%] w-full m-auto ">
         {filteredItems.length > 0 ? (
           filteredItems.map((item, index) => (
             <div
               key={index}
-              className={`p-4 rounded-lg cursor-pointer ${
+              className={`md:p-4 p-2 rounded-lg cursor-pointer ${
                 isDarkMode
-                  ? "bg-gray-800 shadow-sm shadow-white" // Dark mode shadow
-                  : "bg-white shadow-lg shadow-gray-500/50" // Light mode shadow
+                  ? "bg-gray-800 shadow-sm shadow-white"
+                  : "bg-white shadow-lg shadow-gray-500/50"
               }`}
-              onClick={() => setSelectedItem(item)} // Show popup on click
+              onClick={() => setSelectedItem(item)}
             >
               <p className="text-sm mb-2 font-medium text-[20px]">
                 {item.name}
@@ -136,7 +137,7 @@ function Filter({ isDarkMode }) {
                   ₦{item.price.toLocaleString()}
                 </p>
                 <button
-                  className={`w-[40%] py-1 mt-2 rounded-3xl font-medium ${
+                  className={`md:w-[40%] w-[60%] py-1 mt-2 rounded-3xl font-medium ${
                     isDarkMode
                       ? "bg-[#FDA400] text-white"
                       : "bg-[#FDA400] text-white"
@@ -158,7 +159,7 @@ function Filter({ isDarkMode }) {
       {/* Popup for Item Details */}
       {selectedItem && (
         <div
-          className={`fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50`}
+          className={`fixed top-0 left-0 w-full h-full flex items-center justify-center backdrop-blur-sm bg-black bg-opacity-70`}
         >
           <div
             ref={popupRef} // Reference for the popup
@@ -166,32 +167,48 @@ function Filter({ isDarkMode }) {
               isDarkMode ? "bg-gray-900 text-white" : "bg-white text-black"
             }`}
           >
-            <button
-              className="absolute top-4 right-4 text-lg font-bold"
-              onClick={handleClosePopup}
-            >
-              &times;
-            </button>
             <img
               src={selectedItem.image}
               alt={selectedItem.name}
               className="w-full h-40 object-fit rounded-lg mb-3"
             />
             <h3 className="text-xl font-bold mb-2">{selectedItem.name}</h3>
-            <p className="text-sm mb-2">Price: ${selectedItem.price}</p>
-            <p className="text-sm mb-2">
-              Colors: {selectedItem.colorsAvailable.join(", ")}
-            </p>
-            <p className="text-sm mb-2">
-              Sizes: {selectedItem.size.join(", ")}
-            </p>
-            <p
-              className={`text-sm font-medium ${
-                selectedItem.inStock ? "text-green-500" : "text-red-500"
+            <p className="text-xl mb-2">{selectedItem.description}</p>
+            <div className="flex justify-between">
+              <p className="text-sm mb-2 bg-black text-white w-fit rounded-3xl p-[15px] ">
+                Colors: {selectedItem.colorsAvailable.join(", ")}
+              </p>
+              <p className="text-sm mb-2 bg-black text-white w-fit rounded-3xl p-[15px] ">
+                Sizes: {selectedItem.size.join(", ")}
+              </p>
+            </div>
+            <div className="flex justify-between items-center w-[60%] mt-[20px] ">
+              <p className="text-sm mb-2">₦{selectedItem.price}</p>
+              <p
+                className={`flex items-center justify-center gap-2 text-sm font-medium ${
+                  selectedItem.inStock
+                    ? "text-[#1FAF38] border-[#1FAF38] border-solid border-[1.5px] w-fit rounded-full pt-[7px] pb-[7px] pl-[15px] pr-[15px]"
+                    : "text-red-500 border-red-500 border-solid border-[1.5px] w-fit rounded-full pt-[7px] pb-[7px] pl-[15px] pr-[15px]"
+                }`}
+              >
+                <span
+                  className={`w-2 h-2 rounded-full ${
+                    selectedItem.inStock ? "bg-[#1FAF38]" : "bg-red-500"
+                  }`}
+                ></span>
+                {selectedItem.inStock ? "In Stock" : "Out of Stock"}
+              </p>
+            </div>
+            <div
+              className={` flex justify-center gap-2 w-full py-2 mt-3 rounded-lg font-medium ${
+                isDarkMode
+                  ? "bg-[#FDA400] text-white"
+                  : "bg-[#FDA400] text-white"
               }`}
             >
-              {selectedItem.inStock ? "In Stock" : "Out of Stock"}
-            </p>
+              <p>Order Now</p>
+              <img src={cart} className="w-6" alt="" />
+            </div>
           </div>
         </div>
       )}
