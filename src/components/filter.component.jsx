@@ -3,20 +3,25 @@ import dropDown from "../assets/arrow_down.svg";
 import shopItems from "../utils/shop.utils";
 import cart from "../assets/mdi_cart(white).svg";
 
-
 function Filter({ isDarkMode }) {
-  const [filter, setFilter] = useState("shoes"); // Current selected category
-  const [gender, setGender] = useState("Male"); // Selected gender
-  const [head, setHead] = useState("SHOES"); // Selected category heading
-  const [filteredItems, setFilteredItems] = useState([]); // Filtered items
-  const [selectedItem, setSelectedItem] = useState(null); // Selected item for popup
-  const popupRef = useRef(null); // Reference for the popup
+  const [filter, setFilter] = useState("shoes");
+  const [gender, setGender] = useState("Male");
+  const [head, setHead] = useState("SHOES");
+  const [filteredItems, setFilteredItems] = useState([]);
+  const [selectedItem, setSelectedItem] = useState(null);
+  const popupRef = useRef(null);
+
+  const colorMapping = {
+    shoes: "#000",
+    clothes: "#FFDD55",
+    accessories: "#4B0082",
+    bags: "#1FAF38"
+  };
 
   const handleClosePopup = () => {
     setSelectedItem(null);
   };
 
-  // Close popup when clicking outside of it
   useEffect(() => {
     const handleOutsideClick = (event) => {
       if (popupRef.current && !popupRef.current.contains(event.target)) {
@@ -58,15 +63,26 @@ function Filter({ isDarkMode }) {
     >
       <h1
         style={{
-          color: isDarkMode ? "rgba(255, 255, 255, 0.7)" : "rgba(0, 0, 0, 0.7)"
+          color: isDarkMode
+            ? "rgba(255, 255, 255, 0.7)"
+            :  "rgba(0, 0, 0, 0.7)"
         }}
         className="text-[40px] text-center font-bold mb-4"
       >
-        <span>{head}</span> tailored to fit your unique taste.
+        <span
+          style={{
+            color: isDarkMode
+              ? "rgba(255, 255, 255, 0.7)"
+              : colorMapping[filter] || "black"
+          }}
+          className="text-black"
+        >
+          {head}
+        </span>{" "}
+        tailored to fit your unique taste.
       </h1>
 
       <div className="flex flex-col md:flex-row md:justify-between md:w-[70%] md:m-auto gap-4">
-        {/* Category Buttons */}
         <div className="flex flex-wrap gap-4">
           {["shoes", "clothes", "accessories", "bags"].map((type) => (
             <button
@@ -89,7 +105,6 @@ function Filter({ isDarkMode }) {
           ))}
         </div>
 
-        {/* Gender Dropdown */}
         <div className="relative flex items-center md:w-auto w-full">
           <img
             src={dropDown}
@@ -99,20 +114,18 @@ function Filter({ isDarkMode }) {
           <select
             id="gender"
             value={gender}
+            style={{
+              backgroundColor: "#0000004D"
+            }}
             onChange={handleGenderChange}
-            className={`appearance-none p-2 pr-10 rounded-lg border-[2px] ${
-              isDarkMode
-                ? "bg-gray-800 text-white border-gray-600"
-                : "bg-gray-800 text-white border-gray-300"
-            } w-full md:w-auto`}
+            className={`appearance-none p-2 pr-10 rounded-lg border-[2px] w-full text-white md:w-auto`}
           >
             <option value="Male">Male</option>
             <option value="Female">Female</option>
           </select>
         </div>
       </div>
-      {/* Filtered Items */}
-      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-6 md:w-[80%] w-full m-auto ">
+      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-6 md:w-[80%] w-full m-auto">
         {filteredItems.length > 0 ? (
           filteredItems.map((item, index) => (
             <div
@@ -156,13 +169,12 @@ function Filter({ isDarkMode }) {
           </div>
         )}
       </div>
-      {/* Popup for Item Details */}
       {selectedItem && (
         <div
           className={`fixed top-0 left-0 w-full h-full flex items-center justify-center backdrop-blur-sm bg-black bg-opacity-70`}
         >
           <div
-            ref={popupRef} // Reference for the popup
+            ref={popupRef}
             className={`relative p-6 rounded-lg max-w-md w-full ${
               isDarkMode ? "bg-gray-900 text-white" : "bg-white text-black"
             }`}
@@ -175,14 +187,14 @@ function Filter({ isDarkMode }) {
             <h3 className="text-xl font-bold mb-2">{selectedItem.name}</h3>
             <p className="text-xl mb-2">{selectedItem.description}</p>
             <div className="flex justify-between">
-              <p className="text-sm mb-2 bg-black text-white w-fit rounded-3xl p-[15px] ">
+              <p className="text-sm mb-2 bg-black text-white w-fit rounded-3xl p-[15px]">
                 Colors: {selectedItem.colorsAvailable.join(", ")}
               </p>
-              <p className="text-sm mb-2 bg-black text-white w-fit rounded-3xl p-[15px] ">
+              <p className="text-sm mb-2 bg-black text-white w-fit rounded-3xl p-[15px]">
                 Sizes: {selectedItem.size.join(", ")}
               </p>
             </div>
-            <div className="flex justify-between items-center w-[60%] mt-[20px] ">
+            <div className="flex justify-between items-center w-[60%] mt-[20px]">
               <p className="text-sm mb-2">₦{selectedItem.price}</p>
               <p
                 className={`flex items-center justify-center gap-2 text-sm font-medium ${
@@ -200,7 +212,7 @@ function Filter({ isDarkMode }) {
               </p>
             </div>
             <div
-              className={` flex justify-center gap-2 w-full py-2 mt-3 rounded-lg font-medium ${
+              className={`flex justify-center gap-2 w-full py-2 mt-3 rounded-lg font-medium ${
                 isDarkMode
                   ? "bg-[#FDA400] text-white"
                   : "bg-[#FDA400] text-white"
