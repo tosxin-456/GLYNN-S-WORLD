@@ -5,7 +5,6 @@ function BlackFridayComponent() {
   return (
     <div className="bg-[#FFDD55]">
       <div className="relative flex overflow-x-hidden">
-        {/* First set of items */}
         <div className="animate-marquee flex items-center whitespace-nowrap gap-10">
           {[...Array(3)].map((_, idx) => (
             <div
@@ -20,7 +19,6 @@ function BlackFridayComponent() {
           ))}
         </div>
 
-        {/* Second set of items for smooth transition */}
         <div className="animate-marquee2 flex items-center whitespace-nowrap gap-10 absolute top-0">
           {[...Array(3)].map((_, idx) => (
             <div

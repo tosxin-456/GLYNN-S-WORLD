@@ -5,10 +5,10 @@ import Navbar from "./components/navbar.component";
 import Filter from "./components/filter.component";
 
 function App() {
-  const [isDarkMode, setIsDarkMode] = useState(false); // State for light/dark mode
+  const [isDarkMode, setIsDarkMode] = useState(false); 
 
   const toggleMode = () => {
-    setIsDarkMode((prevMode) => !prevMode); // Toggle light/dark mode
+    setIsDarkMode((prevMode) => !prevMode); 
   };
 
   return (
@@ -17,7 +17,6 @@ function App() {
         isDarkMode ? "bg-gray-900 text-white" : "bg-white text-black"
       }`}
     >
-      {/* Navbar with toggle passed down */}
       <BlackFridayComponent isDarkMode={isDarkMode} />
       <Navbar isDarkMode={isDarkMode} toggleMode={toggleMode} />
       <Filter isDarkMode={isDarkMode} />
