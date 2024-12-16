@@ -12,6 +12,16 @@ import cloth4 from '../assets/shop_items/cloth 4.png';
 import cloth5 from '../assets/shop_items/cloth 5.png';
 import cloth6 from '../assets/shop_items/cloth 6.png';
 import cloth7 from '../assets/shop_items/cloth 7.png';
+import menbag1 from '../assets/shop_items/men bag 1.jpeg';
+import menbag2 from '../assets/shop_items/men bag 2.jpeg';
+import womenbag1 from '../assets/shop_items/bag 2.jpeg';
+import womenbag2 from '../assets/shop_items/bag 3.jpeg';
+import acessmen1 from '../assets/shop_items/acessmen1.jpeg';
+import acessmen2 from '../assets/shop_items/accessmen2.jpeg';
+import acesswomen1 from '../assets/shop_items/accesswomen1.jpeg';
+import acesswomen2 from '../assets/shop_items/accesswomen2.jpeg';
+import acesswomen3 from '../assets/shop_items/accesswomne3.jpeg';
+
 
 const shopItems = [
     {
@@ -169,89 +179,89 @@ const shopItems = [
         gender: "Female"
     },
     {
-        name: "Jacket Sweater",
+        name: "Butterfly Necklace",
         price: 8000,
         colorsAvailable: ["Black", "Brown"],
         size: [40, 41, 42, 43],
         inStock: true,
-        image: cloth4,
+        image: acesswomen2,
         type: 'accessories',
         description: "Lorem ipsum dolor sit amet consectetur. Odio dictum sed elit ac non tristique. Velit feugiat accumsan nulla pulvinar aenean.",
         gender: "Female"
     },
     {
-        name: "Hoodies",
+        name: "Chain Necklace",
         price: 15500,
         colorsAvailable: ["Blue", "White"],
         size: [36, 37, 38, 39],
         inStock: false,
-        image: cloth5,
+        image: acessmen2,
         type: 'accessories',
         description: "Lorem ipsum dolor sit amet consectetur. Odio dictum sed elit ac non tristique. Velit feugiat accumsan nulla pulvinar aenean.",
         gender: "Male"
     },
     {
-        name: "Crop Top",
+        name: "Black Necklace",
         price: 8500,
         colorsAvailable: ["Red", "Black"],
         size: [41, 42, 43, 44, 45],
         inStock: true,
-        image: cloth6,
+        image: acessmen1,
         type: 'accessories',
         description: "Lorem ipsum dolor sit amet consectetur. Odio dictum sed elit ac non tristique. Velit feugiat accumsan nulla pulvinar aenean.",
         gender: "Male"
     },
     {
-        name: "Jacket Sweater",
+        name: "Pearl",
         price: 10000,
         colorsAvailable: ["Purple", "Pink"],
         size: [37, 38, 39, 40, 41],
         inStock: false,
-        image: cloth7,
+        image: acesswomen1,
         type: 'accessories',
         description: "Lorem ipsum dolor sit amet consectetur. Odio dictum sed elit ac non tristique. Velit feugiat accumsan nulla pulvinar aenean.",
         gender: "Female"
     },
     {
-        name: "Jacket Sweater",
+        name: "ButterFly bag",
         price: 8000,
         colorsAvailable: ["Black", "Brown"],
         size: [40, 41, 42, 43],
         inStock: true,
-        image: cloth4,
+        image: womenbag2,
         type: 'bags',
         description: "Lorem ipsum dolor sit amet consectetur. Odio dictum sed elit ac non tristique. Velit feugiat accumsan nulla pulvinar aenean.",
         gender: "Female"
     },
     {
-        name: "Hoodies",
+        name: "Knuckle bag",
         price: 15500,
         colorsAvailable: ["Blue", "White"],
         size: [36, 37, 38, 39],
         inStock: false,
-        image: cloth5,
+        image: menbag1,
         type: 'bags',
         description: "Lorem ipsum dolor sit amet consectetur. Odio dictum sed elit ac non tristique. Velit feugiat accumsan nulla pulvinar aenean.",
         gender: "Male"
     },
     {
-        name: "Crop Top",
+        name: "School Bag",
         price: 8500,
         colorsAvailable: ["Red", "Black"],
         size: [41, 42, 43, 44, 45],
         inStock: true,
-        image: cloth6,
+        image: menbag2,
         type: 'bags',
         description: "Lorem ipsum dolor sit amet consectetur. Odio dictum sed elit ac non tristique. Velit feugiat accumsan nulla pulvinar aenean.",
         gender: "Male"
     },
     {
-        name: "Jacket Sweater",
+        name: "White Bag",
         price: 10000,
         colorsAvailable: ["Purple", "Pink"],
         size: [37, 38, 39, 40, 41],
         inStock: false,
-        image: cloth7,
+        image: womenbag1,
         type: 'bags',
         description: "Lorem ipsum dolor sit amet consectetur. Odio dictum sed elit ac non tristique. Velit feugiat accumsan nulla pulvinar aenean.",
         gender: "Female"
